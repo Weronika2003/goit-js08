@@ -9,9 +9,9 @@ const trackTime = 'videoplayer-current-time';
 player.on('timeupdate', throttle(onPlayerTimeupdate, 1000));
 // uruchomienie throttle 
 function onPlayerTimeupdate(data) {
-  const currenTime = data.seconds;
+  const currentTime = data.seconds;
 
-  videoTime.setItem(trackTime, currenTime);
+  localStorage.setItem(trackTime, currentTime);
 }
 
-player.setCurrentTime(videoTime.getItem(trackTime) || 0);
+player.setCurrentTime(localStorage.getItem(trackTime) || 0);
